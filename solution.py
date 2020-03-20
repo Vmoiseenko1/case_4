@@ -13,7 +13,7 @@ def check_text(file): # to check the text
             for i in range(len(lines)):
                 lines[i] = lines[i].replace(symbol, '')
         for z in range(len(lines)):
-            lines[z] = lines[z].replace('\n', '')
+            lines[z] = lines[z].replace('\n', ' ')
             lines[z] = lines[z].replace(' .', '.')
             lines[z] = lines[z].replace(' !', '!')
             lines[z] = lines[z].replace(' ?', '?')
