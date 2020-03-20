@@ -4,17 +4,20 @@
 
 import random
 
-# For Vlas:
-def zvenia(): #получить звенья
-    pass
-
 # For Victoria:
 def prov(): #проверить текст
     pass
 
+
 # For Victoria:
 def start(): #получить список стартовых слов
     pass
+
+
+# For Vlas:
+def zvenia(): #получить звенья
+    pass
+
 
 # For Vlas:
 def gen(): #сгенерировать текст
