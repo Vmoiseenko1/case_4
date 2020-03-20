@@ -162,7 +162,7 @@ def text_generating(file):
     ans = ''
     while COLpred != 0:
         stw = random.choice(start)
-        ans += stw + ' ' + '\n'
+        ans += stw + ' '
         cols = random.choice(word)
         while cols != 0:
             ranSTR = random.choice(z)
