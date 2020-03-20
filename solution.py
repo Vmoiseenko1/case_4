@@ -22,7 +22,7 @@ def check_text(file): # to check the text
             lines[z] = lines[z].replace(' ,', ',')
         return lines
 
-# For Victoria:
+# For Vlas:
 def get_parts(f):
     with open(f) as f1:
         lines = f1.readlines()
@@ -82,7 +82,7 @@ def get_parts(f):
             g += 1
     return part
 
-#For Vlas:
+#For Victoria:
 def start_words(file): #получить список стартовых слов
     with open(file) as f1:
         lines = f1.readlines()
