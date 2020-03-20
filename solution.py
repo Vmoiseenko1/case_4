@@ -5,9 +5,23 @@
 import random
 
 # For Victoria:
-def checking_text(): #проверить текст
-    pass
+def check_text(file): # to check the text
+    with open(file) as file1:
+        lines = file1.readlines()
+        symbols = ['@', '#', '$', '%', '^', '&', '*', '(', ')']
+        for symbol in symbols:
+            for i in range(len(lines)):
+                lines[i] = lines[i].replace(symbol, '')
+        for z in range(len(lines)):
+            lines[z] = lines[z].replace('\n', '')
+            lines[z] = lines[z].replace(' .', '.')
+            lines[z] = lines[z].replace(' !', '!')
+            lines[z] = lines[z].replace(' ?', '?')
+            lines[z] = lines[z].replace(' ,', ',')
+        return lines
 
+file = input('Имя файла: ')
+print(check_text(file))
 
 # For Victoria:
 def start_words(): #получить список стартовых слов
