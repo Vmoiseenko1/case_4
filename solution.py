@@ -5,20 +5,20 @@
 import random
 
 # For Victoria:
-def prov(): #проверить текст
+def checking_text(): #проверить текст
     pass
 
 
 # For Victoria:
-def start(): #получить список стартовых слов
+def start_words(): #получить список стартовых слов
     pass
 
 
 # For Vlas:
-def zvenia(): #получить звенья
+def get_parts(): #получить звенья
     pass
 
 
 # For Vlas:
-def gen(): #сгенерировать текст
+def text_generating(): #сгенерировать текст
     pass
