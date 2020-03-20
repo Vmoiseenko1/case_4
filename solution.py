@@ -23,16 +23,7 @@ def check_text(file): # to check the text
         return lines
 
 # For Victoria:
-def start_words(text): #получить список стартовых слов
-    start_words = []
-    for word in text:
-        lst = word.split()
-        for w in lst:
-            start_words.append(w)
-    return start_words
-
-# For Vlas:
-def get_parts(f): #получить звенья
+def get_parts(f):
     with open(f) as f1:
         lines = f1.readlines()
     t = []
@@ -91,14 +82,125 @@ def get_parts(f): #получить звенья
             g += 1
     return part
 
+#For Vlas:
+def start_words(file): #получить список стартовых слов
+    with open(file) as f1:
+        lines = f1.readlines()
+    t = []
+    text = []
 
-# For Vlas:
-def text_generating(): #сгенерировать текст
-    pass
+    k = 1
+    for i in lines:
+        l = lines[k - 1].split()
+        t.append(l)
+        k += 1
+
+    for e in t:
+        for r in e:
+            text.append(r)
+
+    st = ''
+    for j in text:
+        st += j + ' '
+    predl = re.split("\. ", st)
+    lpredl = len(predl)
+    if predl[lpredl - 1] == '':
+        predl.remove(predl[lpredl - 1])
+
+    start = []
+    for y in predl:
+        n = y.find(' ')
+        word = y[0:n]
+        start.append(word)
+    return start
+
+#For Vlas:
+def text_generating(file):
+    with open(file) as f1:
+        lines = f1.readlines()
+    t = []
+    text = []
+
+    k = 1
+    for i in lines:
+        l = lines[k - 1].split()
+        t.append(l)
+        k += 1
+
+    for e in t:
+        for r in e:
+            text.append(r)
+
+    st = ''
+    for j in text:
+        st += j + ' '
+    predl = re.split("\. ", st)
+    lpredl = len(predl)
+    if predl[lpredl - 1] == '':
+        predl.remove(predl[lpredl - 1])
+
+    word = []
+    for y in predl:
+        w = y.count(' ') + 1
+        word.append(w)
+
+
+    zven = get_parts(file)
+    start = start_words(file)
+
+    COLpred = len(word)
+
+    zv = zveno(zven)
+
+    with open('pro.txt') as f1:
+        line = f1.readlines()
+
+    z = []
+    for i in line:
+        z.append(i)
+
+    ans = ''
+    while COLpred != 0:
+        stw = random.choice(start)
+        ans += stw + ' ' + '\n'
+        cols = random.choice(word)
+        while cols != 0:
+            ranSTR = random.choice(z)
+            ranslov = ranSTR[0:ranSTR.find(' ')]
+            le = len(ranSTR)
+            ranOSt = ranSTR[ranSTR.find(' ') + 1:le]
+
+            rez = []
+            slovo = ''
+            ranOSt = ranOSt[2:]
+
+            for i in ranOSt:
+                if i != "'" and i != ' ' and i != ']' and i != ',':
+                    slovo += i
+                elif i == "'":
+                    rez.append(slovo)
+                    slovo = ''
+
+            for i in rez:
+                if i == '':
+                    rez.remove('')
+            lDOp = len(rez)
+            ans += ranslov + ' '
+            while lDOp != 0:
+                randDOP = random.choice(rez)
+                ans += randDOP + ' '
+                lDOp -= 1
+            cols -= 1
+        COLpred -= 1
+    return ans
+
+
+def zveno(z):
+    fo = open('pro.txt', 'w')
+    fo.write(z)
+    fo.close()
+    return fo
 
 
 file = input('Имя файла: ')
-text = check_text(file)
-print(start_words(text))
-print(check_text(file))
-print(get_parts(file))
+print(text_generating(file))
