@@ -6,8 +6,12 @@
 import random
 import re
 
-# For Victoria:
-def check_text(file): # to check the text
+def check_text(file):
+    """
+    Checking the text for forbidden characters
+    :param file: the file with the text
+    :return: the text without forbidden characters
+    """
     with open(file) as file1:
         lines = file1.readlines()
         symbols = ['@', '#', '$', '%', '^', '&', '*', '(', ')']
@@ -22,8 +26,12 @@ def check_text(file): # to check the text
             lines[z] = lines[z].replace(' ,', ',')
         return lines
 
-# For Vlas:
 def get_parts(f):
+    """
+    Getting the parts for sentences
+    :param f: the input file
+    :return: the parts
+    """
     with open(f) as f1:
         lines = f1.readlines()
     t = []
@@ -82,8 +90,12 @@ def get_parts(f):
             g += 1
     return part
 
-#For Victoria:
-def start_words(file): #получить список стартовых слов
+def start_words(file):
+    """
+    Getting the list of start words
+    :param file: the input file
+    :return: the list of th start words
+    """
     with open(file) as f1:
         lines = f1.readlines()
     t = []
@@ -114,8 +126,12 @@ def start_words(file): #получить список стартовых сло�
         start.append(word)
     return start
 
-#For Vlas:
 def text_generating(file):
+    """
+    Generating the ready file
+    :param file: the input file
+    :return: the ready text
+    """
     with open(file) as f1:
         lines = f1.readlines()
     t = []
@@ -196,6 +212,11 @@ def text_generating(file):
 
 
 def zveno(z):
+    """
+    Writing the text into the file
+    :param z: the ready text
+    :return: the ready file
+    """
     fo = open('pro.txt', 'w')
     fo.write(z)
     fo.close()
