@@ -1,6 +1,6 @@
 # Case-study 6 "Generating of sentences"
-# Developers: Vlasov V. (%)
-#             Moiseenko V. (%)
+# Developers: Vlasov V. (69%)
+#             Moiseenko V. (31%)
 # The aim: to develop a program for generating the number of offers from a file using Markov algorithms
 
 import random
